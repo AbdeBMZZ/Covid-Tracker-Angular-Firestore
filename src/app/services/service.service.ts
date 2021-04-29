@@ -11,6 +11,8 @@ export class ServiceService {
   public citoyens:Array<Citoyen>;
   public patients:Array<Patient>;
 
+  public patientsInHospital:Array<Patient>;
+
   constructor(private frestore:AngularFirestore) { 
     this.getAll();
   }
@@ -22,8 +24,8 @@ export class ServiceService {
           ...citoyen.payload.doc.data() as {}
         } as Citoyen;
       })
+
     });
-    
   }
   getPatientFromCitoyens(){
     this.getAll()
@@ -31,7 +33,9 @@ export class ServiceService {
     patients=new Array<Patient>();
     this.citoyens.forEach(element => {
       if(this.test(element)=="POSITIVE"){
-        patients.push(element);
+        if(element.age<75){
+          patients.push(element);
+        }
     }});
     return patients;
   }
@@ -42,6 +46,36 @@ export class ServiceService {
 
   getJustPatients(){
     return this.frestore.collection('patient');
+  }
+  getPatientg75(){
+    this.getAll();
+    let patientsInH:Array<Patient>;
+    patientsInH = new Array<Patient>();
+    this.citoyens.forEach(e =>{
+      if(this.test(e)=="POSITIVE"){
+        if(e.age>=75 && e.age<90)
+        {
+          patientsInH.push(e);
+        }
+      }
+    }) 
+    return patientsInH;
+  }
+
+  getCriticalCases(){
+    this.getAll();
+    let patientsInC:Array<Patient>;
+    patientsInC = new Array<Patient>();
+    this.citoyens.forEach(e =>{
+      if(this.test(e)=="POSITIVE"){
+        if(e.age>=90)
+        {
+          patientsInC.push(e);
+        }
+
+      }
+    }) 
+    return patientsInC;
   }
 
   test(params:Citoyen):any {
@@ -58,8 +92,6 @@ export class ServiceService {
 
     const diffTime = Math.abs(Tnow.getTime() - new Date(dateP).getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-
-
     return diffDays;
   }
 }
