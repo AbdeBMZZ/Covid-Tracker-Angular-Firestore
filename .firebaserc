@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fir-covid-5edb1": {
+      "hosting": {
+        "covidApp": [
+          "fir-covid-5edb1"
+        ]
+      }
+    }
+  }
+}

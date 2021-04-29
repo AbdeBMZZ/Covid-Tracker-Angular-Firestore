@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Address</th>
+        <th scope="col">first date</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mam of citoyensTo">
+        <td>{{mam.name}}</td>
+        <td>{{mam.age}} y.o</td>
+        <td>{{mam.address}}</td>
+        <td>{{mam.time}}</td>
+      </tr>
+
+    </tbody>
+  </table>

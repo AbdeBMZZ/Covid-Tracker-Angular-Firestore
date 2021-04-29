@@ -1,0 +1,28 @@
+<br>
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group"> 
+    <h6>Enter Your Full Name</h6>
+    <input type="text" class="form-control" formControlName="fullName" placeholder="Full Name">
+  </div>
+
+  <div class="form-group"> 
+    <h6>Enter Your age</h6>
+    <input type="text" class="form-control" formControlName="Age" placeholder="Age">
+  </div>
+
+  <div class="form-group"> 
+    <h6>Enter Your Address</h6>
+    <textarea rows="2" class="form-control" formControlName="Address" placeholder="Address"> </textarea>
+  </div>
+
+  <div class="form-group"> 
+    <h6>Do you have the Covid Symptoms</h6>
+    <select class="form-select" aria-label="Default select example" formControlName="symp">
+        <option value="1">YES</option>
+        <option value="0">NO</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-secondary">Do the PCR</button>
+</form>
