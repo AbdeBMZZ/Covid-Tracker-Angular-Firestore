@@ -46,7 +46,7 @@ export class AddPatientComponent implements OnInit {
     let pipe = new DatePipe('en-US');
     let now = Date.now();
       
-    let myShortFormat = pipe.transform(now, 'yyyy/MM/dd  HH:mm:ss');
+    let myShortFormat = pipe.transform(now, 'yyyy/MM/dd HH:mm:ss');
     
     this.service.getCitoyens().doc().set({
       address: add,

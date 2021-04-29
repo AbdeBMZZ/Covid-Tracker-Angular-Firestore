@@ -3,7 +3,7 @@ export class Citoyen{
     public age:number;
     public address:string;
     public symp:boolean;
-    public time:string;
+    public time:any;
     constructor(name:string, age:number, address:string, symp:boolean){
         this.name=name;
         this.age=age;

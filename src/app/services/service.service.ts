@@ -13,12 +13,10 @@ export class ServiceService {
 
   constructor(private frestore:AngularFirestore) { 
     this.getAll();
-
   }
 
   getAll(){
     return this.frestore.collection('Citoyen').snapshotChanges().subscribe((doc)=>{
-
       this.citoyens = doc.map((citoyen)=>{
         return {
           ...citoyen.payload.doc.data() as {}
@@ -46,16 +44,22 @@ export class ServiceService {
     return this.frestore.collection('patient');
   }
 
-  getPatients(){
-    this.getAll()
-    let lkk = this.getPatientFromCitoyens();
-    return lkk;
-  }
-
   test(params:Citoyen):any {
     if(params.age>=50 && params.symp == true)
       return "POSITIVE";
     else
       return "NEGATIVE";
+  }
+
+  calculateCurrentday(p:Patient){
+
+    let dateP = new Date(p.time);
+    let Tnow = new Date();
+
+    const diffTime = Math.abs(Tnow.getTime() - new Date(dateP).getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+
+    return diffDays;
   }
 }

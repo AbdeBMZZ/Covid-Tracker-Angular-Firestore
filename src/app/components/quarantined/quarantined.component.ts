@@ -11,7 +11,9 @@ export class QuarantinedComponent implements OnInit {
   public citoyensTo:Array<Patient>;
 
   constructor(public service:ServiceService) { 
-    this.citoyensTo = this.service.getPatients()
+    this.service.getAll()
+    this.citoyensTo = this.service.getPatientFromCitoyens()
+    console.log(this.citoyensTo)
   }
 
   ngOnInit(): void {

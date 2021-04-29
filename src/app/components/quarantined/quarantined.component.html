@@ -4,9 +4,10 @@
         <th scope="col">Name</th>
         <th scope="col">Age</th>
         <th scope="col">Address</th>
-        <th scope="col">first date</th>
+        <th scope="col">Day 1</th>
+        <th scope="col">Current day</th>
 
-      </tr>
+      </tr> 
     </thead>
     <tbody>
       <tr *ngFor="let mam of citoyensTo">
@@ -14,6 +15,7 @@
         <td>{{mam.age}} y.o</td>
         <td>{{mam.address}}</td>
         <td>{{mam.time}}</td>
+        <td>{{service.calculateCurrentday(mam)}}</td>
       </tr>
 
     </tbody>
