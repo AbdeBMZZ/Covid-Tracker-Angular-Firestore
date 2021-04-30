@@ -19,4 +19,6 @@ export class QuarantinedComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+
 }

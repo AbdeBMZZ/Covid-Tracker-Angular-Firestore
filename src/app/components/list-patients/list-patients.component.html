@@ -12,13 +12,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let mam of citoyens">
+      <tr *ngFor="let mam of citoyens" style="background-color:{{changestyle(mam)}};">
         <td>{{mam.name}}</td>
         <td>{{mam.age}} y.o</td>
         <td>{{mam.address}}</td>
         <td>{{service.test(mam)}}</td>
         <td>{{mam.time}}</td>
-
       </tr>
 
     </tbody>

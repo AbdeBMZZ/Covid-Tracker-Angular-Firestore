@@ -85,6 +85,14 @@ export class ServiceService {
       return "NEGATIVE";
   }
 
+  colorcontrol(params:Citoyen):boolean{
+  
+    if(params.age>=50 && params.symp == true)
+      return true;
+    else
+      return false;
+  }
+
   calculateCurrentday(p:Patient){
 
     let dateP = new Date(p.time);

@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutMeComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    console.log(Math.floor((Math.random() * 3) + 1));
+  }
 
   ngOnInit(): void {
   }

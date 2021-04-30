@@ -26,5 +26,10 @@ export class ListPatientsComponent implements OnInit {
       })
     })
   }
+  changestyle(c:Citoyen){
+    if(this.service.test(c)=="POSITIVE")
+      return "indianred";
+    return "mediumseagreen";
+  }
 
 }
